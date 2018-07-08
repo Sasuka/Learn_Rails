@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title
+      | LearnRails
+      = @page_title || "Admin"
+    = csp_meta_tag
+    = csrf_meta_tags
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    /! Meta, title, CSS, favicons, etc.
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+
+  body
+    #main
+      - if flash[:notice].present?
+        .alert.alert-success
+          = flash[:notice]
+      #content
+      = yield

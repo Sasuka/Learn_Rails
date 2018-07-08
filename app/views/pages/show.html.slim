@@ -1,0 +1,28 @@
+- if !flash[:notice].blank?
+  .notice
+    = flash[:notice]
+
+h1 Page#show
+= link_to 'Show', :action => 'index'
+.page-show
+  table summary='show details'
+    tr
+      th Name
+      td
+        = @page.name
+    tr
+      th Position
+      td
+        = @page.position
+    tr
+      th Visible ?
+      td
+        = @page.visible? ? 'true' : 'false'
+    tr
+      th Created At
+      td
+        = @page.created_at
+    tr
+      th Update at
+      td
+        = @page.updated_at

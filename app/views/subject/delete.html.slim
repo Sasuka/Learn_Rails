@@ -1,0 +1,13 @@
+h1 Subject#delete
+= link_to 'Back', :controller => 'subject', :action => 'index'
+.subject-new
+  h1
+    | Delete
+  = form_for(:subject, :url => {:action => 'destroy', :id => @subject.id }) do |f|
+    table summary="subject form fields"
+      p Are you sure !
+      p.name-subject
+        = @subject.name
+      tr
+        td colspan='2'
+          = f.submit 'Delete'

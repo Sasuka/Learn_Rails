@@ -1,0 +1,35 @@
+h1 Page#new
+= link_to 'Back', :controller => 'pages', :action => 'index'
+.subject-new
+  h1
+    | Create New
+  = form_for :page, :url => {:action => 'create'}, html: {multipart: true} do |f|
+    table summary="pages form fields"
+      tr
+        th
+          = f.label :subject_id
+        td
+          = f.text_field :subject_id
+      tr
+        th
+          = f.label :name
+        td
+          = f.text_field :name
+      tr
+        th
+          = f.label :image
+        td
+          = f.file_field :permalink
+      tr
+        th
+          = f.label :position
+        td
+          = f.select :position, 1..10, :include_blank => true
+      tr
+        td
+          = f.label :visible
+        td
+          = f.check_box :visible
+      tr
+        td colspan='2'
+          = f.submit 'Create', :class => "btn btn-outline-primary"
