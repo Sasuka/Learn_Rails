@@ -1,0 +1,31 @@
+h1 Subject#new
+= link_to 'Back', :controller => 'subject', :action => 'index'
+.subject-new
+  h1
+    | Create New
+  = form_for(:subject, :url => {:action => 'create'}), :html => { :multipart => true } do |f|
+    table summary="subject form fields"
+      tr
+        th
+         = f.label :name
+        td
+          = f.text_field :name
+      tr
+        th
+          = f.label :position
+        td
+          = f.select :position, 1..@subject_count
+      tr
+        th
+          = f.label :visible
+        td
+          = f.check_box :visible
+      tr
+        th
+          = f.label :file
+        td
+          = f.file_field :
+      tr
+        td colspan='2'
+          / <button type="button" class="btn btn-primary">Primary</button>
+          = f.submit 'Create', :class => "btn btn-outline-primary"

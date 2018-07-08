@@ -1,0 +1,8 @@
+h1 Subject#edit
+= link_to 'Back', :controller => 'subject', :action => 'index'
+.subject-new
+  h1
+    | Update
+  = form_for(:subject, :url => {:action => 'update', :id => @subject.id }) do |f|
+    = render :partial => 'form', :locals => {:fo => f}
+    = f.submit 'Update'

@@ -1,0 +1,38 @@
+h1
+  | Subject
+.subject-index
+  = link_to 'Admin new Subject', :controller => 'subject', :action => 'new'
+  table.table.table-bordered.listing summary='Subject list'
+   thead
+    tr.header
+      th Id
+      th
+        | Position
+      th
+        | Name
+      th
+        | Visible
+      th
+      th Pages
+        | Actions
+    tbody
+    - @subjects.each do |subject|
+      tr
+        td
+          = subject.id
+        td
+          = subject.position
+        td
+          = subject.name
+        td.center
+          = status_tag(subject.visible)
+        td.center
+          = subject.pages.size
+        td.actions
+          = link_to 'Show', {:action => 'show', :id => subject.id }, :class => 'action show'
+          = link_to 'Edit',{:action => 'edit', :id => subject.id }, :class => 'action edit'
+          = link_to 'Delete', {:action => 'delete', :id => subject.id } , :class => 'action delete'
+
+
+
+

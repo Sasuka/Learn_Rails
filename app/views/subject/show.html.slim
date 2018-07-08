@@ -1,0 +1,29 @@
+- if !flash[:notice].blank?
+  .notice
+    = flash[:notice]
+
+h1 Subject#show
+= link_to 'Show', :action => 'index'
+.subject-show
+  table summary='show details'
+    tr
+      th Name
+      td
+        = @subject.name
+    tr
+      th Position
+      td
+        = @subject.position
+    tr
+      th Visible ?
+      td
+        = @subject.visible? ? 'true' : 'false'
+    tr
+      th Created At
+      td
+        = @subject.created_at
+    tr
+      th Update at
+      td
+        = @subject.updated_at
+

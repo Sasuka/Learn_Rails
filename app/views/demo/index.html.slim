@@ -1,0 +1,10 @@
+h1
+  | This is a index demo
+  p
+    | Url : demo/index
+    - @arr.each  do |n|
+      = "This is #{n}<br/>".html_safe
+      end
+    = link_to "This is like", :action => 'index', :page => 5, :id => 2
+    = "This is id#{@id} page #{@page} and #{params[:id]}"
+    = params.inspect

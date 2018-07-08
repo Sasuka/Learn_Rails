@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title
+      | LearnRails
+      = @page_title || "Admin"
+    = csp_meta_tag
+    = csrf_meta_tags
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    /! Meta, title, CSS, favicons, etc.
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    = stylesheet_link_tag 'application', media: 'all'
+    css:
+     span.status {
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin: 0.25em;
+        padding: 0;
+        border: 1px solid #000000;
+      }
+      span.status.true {
+        background: green;
+        color: green;
+      }
+     span.status.false {
+        background: red;
+        color: red;
+      }
+  body
+    #main
+      - if flash[:notice].present?
+        .alert.alert-success
+          = flash[:notice]
+      #content
+      = yield
+    = javascript_include_tag 'application'

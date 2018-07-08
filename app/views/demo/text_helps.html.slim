@@ -1,0 +1,19 @@
+- text = "public the text with all the Textile codes turned into HTML tags, but without the bounding <p> tag that RedCloth adds.can learn more about Textile’s syntax at its website. This method is requires RedCloth to be available.textilize_without_paragraph(text) public the text with all the Textile codes turned into HTML tags, but without the bounding <p> tag that RedCloth adds.can learn more about Textile’s syntax at its website. This method is requires RedCloth to be available"
+h2 word wrap
+= word_wrap(text, :line_width => 10)
+h2 Simple formt
+= simple_format(text)
+h3 Simple format + Word wrap
+= simple_format(word_wrap(text, :line_width => 20))
+h3  Truncate
+= truncate(text, :length =>10, :omission => 'sss')
+h3 Excerpert
+= excerpt(text, 'syntax', :radius => 3, :omission => '............')
+h3 Hilight
+= highlight(text, 'syntax')
+h3  pluralize
+= pluralize(5,'syntax')
+h3 Cycle
+- 5.times do
+  = cycle('what','where','when')
+end
